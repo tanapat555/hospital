@@ -3,11 +3,15 @@
 <!doctype html>
 <html>
 <head>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>จัดการผู้ใช้งาน Ethernet</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<style type="text/css">
+	 body {
+            background-color: #87CEFA;
+        }
 		.box-title{
 			border-radius: 5px;
 			box-shadow: 0px 0px 3px 1px gray;
@@ -62,17 +66,19 @@
 	      <div class="modal-body">
 			  	<div class="form-group">
 					<label><b>ชื่อผู้ใช้งาน</b></label>
-					<input type="text" name="username" class="form-control" placeholder="ชื่อผู้ใช้งาน" id="username" >
-					<span class="error-msg" id="msg_1"></span>
+					<input type="text" name="Username" class="form-control" placeholder="ชื่อผู้ใช้งาน" id="Username" >
+					<span id="availability"></span>
+
 			  	</div>
+				  
 			  	<div class="form-group">
 					<label><b>ชื่อนามสกุล</b></label>
-					<input type="text" name="email" class="form-control" placeholder="ชื่อนามสกุล" id="email">
+					<input type="text" name="name" class="form-control" placeholder="ชื่อนามสกุล" id="name">
 					<span class="error-msg" id="msg_2"></span>
 			  	</div>
 				<div class="form-group">
 					<label><b>สถานะผู้ใช้</b></label>
-					<select class="custom-select" name="country" id="country">
+					<select class="custom-select" name="statusid" id="statusid">
 						<option value="" selected>Choose...</option>
 						<option value="ผู้ใช้1">ผู้ใช้1</option>
 						<option value="ผู้ใช้2">ผู้ใช้2</option>
@@ -82,10 +88,10 @@
 			  	</div>
 				<div class="form-group">
 					<label><b>วันหมดอายุบัตร</b></label>
-					<input type="date" name="bod" class="form-control">
+					<input type="date" name="expiry_date" class="form-control">
 					<span class="error-msg" id="msg_4"></span>
 				  </div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label class="mr-3"><b>เพศ</b></label>
 					<div class="form-check form-check-inline">
 					  <input class="form-check-input" type="radio" name="gender" value="ชาย" checked>
@@ -96,7 +102,7 @@
 					  <label class="form-check-label" >หญิง</label>
 					</div>
 					<span class="error-msg"  id="msg_5"></span>
-				</div>	
+				</div>	 -->
 				<div class="form-group">
 					<label><b>รหัส</b></label>
 					<input type="password" name="password" class="form-control">
@@ -139,34 +145,34 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form method="POST" id="updata">
+      <form method="POST" id="update">
       <div class="modal-body">
 		  	<div class="form-group">
 				<label><b>ชื่อผู้ใช้งาน</b></label>
-				<input type="text" class="form-control" name="username" id="upd_1" placeholder="ชื่อผู้ใช้งาน">
+				<input type="text" class="form-control" name="Username" id="upd_1" placeholder="ชื่อผู้ใช้งาน">
 				<span class="error-msg" id="umsg_1"></span>
 		  	</div>
 		  	<div class="form-group">
 				<label><b>ชื่อนามสกุล</b></label>
-				<input type="text" class="form-control" name="email" id="upd_2" placeholder="ชื่อนามสกุล">
+				<input type="text" class="form-control" name="name" id="upd_2" placeholder="ชื่อนามสกุล">
 				<span class="error-msg" id="umsg_2"></span>
 		  	</div>
 			<div class="form-group">
 				<label><b>สถานะผู้ใช้</b></label>
-				<select class="custom-select" id="upd_3" name="country">
+				<select class="custom-select" id="upd_3" name="statusid">
 					<option value="" selected>Choose...</option>
 					<option value="ผู้ใช้1">ผู้ใช้1</option>
-					<option value="ผู้ใช้งาน2">ผู้ใช้2</option>
-					<option value="ผู้ใช้งาน3">ผู้ใช้3</option>
+					<option value="ผู้ใช้2">ผู้ใช้2</option>
+					<option value="ผู้ใช้3">ผู้ใช้3</option>
 				</select>
 				<span class="error-msg" id="umsg_3"></span>
 		  	</div>
 			<div class="form-group">
 				<label><b>วันหมดอายุบัตร</b></label>
-				<input type="date" class="form-control" id="upd_4" name="bod">
+				<input type="date" class="form-control" id="upd_4" name="expiry_date">
 				<span class="error-msg" id="umsg_4"></span>
 		  	</div>
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label><b>เพศ</b></label>
 				<div class="form-check form-check-inline">
 				  <input class="form-check-input" type="radio" id="upd_5" name="gender" value="ชาย">
@@ -177,11 +183,7 @@
 				  <label class="form-check-label" >หญิง</label>
 				</div>
 				<span class="success-msg" id="umsg_5"></span>
-			</div>
-			<div class="form-group">
-				<input type="hidden" name="dataval" id="upd_7">
-				<span class="success-msg" id="umsg_6"></span>
-			</div>
+			</div> -->
 			<div class="form-group">
 					<label><b>รหัส</b></label>
 					<input type="password" name="password" class="form-control">
@@ -302,6 +304,10 @@ $(document).ready(function (){
 		});
 
 	});
+	
+	//check username
+	
+
 
 	//select data
 
@@ -310,24 +316,18 @@ $(document).ready(function (){
 		$('#umsg_2').text("");
 		$('#umsg_3').text("");
 		$('#umsg_4').text("");
-		$('#umsg_5').text("");
+		//$('#umsg_5').text("");
 		$('#umsg_6').text("");
 		$('#umsg_7').text("");
 		var check_id = $(this).data('dataid');
 		$.getJSON("updateprocess.php", {checkid : check_id}, function(json){
 			if(json.status == 0){
-				$('#upd_1').val(json.username);
-				$('#upd_2').val(json.email);
-				$('#upd_3').val(json.country);
-				$('#upd_4').val(json.bod);
+				$('#upd_1').val(json.Username);
+				$('#upd_2').val(json.name);
+				$('#upd_3').val(json.statusid);
+				$('#upd_4').val(json.expiry_date);
 				$('#upd_7').val(check_id);
 				$('#upd_8').val(json.department);
-				if(json.gender == 'Male'){
-					$('#upd_5').prop("checked", true);
-				}
-				else{
-					$('#upd_6').prop("checked", true);
-				}
 			}
 			else{
 				console.log(json.msg);

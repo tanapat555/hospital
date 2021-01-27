@@ -8,6 +8,9 @@ class Userfunction{
 	private $DBNAME='hospital';
 	public $con;
 
+
+	
+
 	public function __construct(){
 		$this->con = mysqli_connect($this->DBHOST, $this->DBUSER, $this->DBPASS, $this->DBNAME);
 		if(!$this->con){
@@ -15,6 +18,7 @@ class Userfunction{
 		}
 		
 	}
+	
 	
 	
 
@@ -159,7 +163,10 @@ class Userfunction{
 
 	}	
 	
+	
 
 }
 
+	
+	
 ?>

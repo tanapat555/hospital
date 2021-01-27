@@ -7,24 +7,24 @@ $json = array();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['country']) && isset($_POST['bod']) && isset($_POST['gender']) && isset($_POST['password']) && isset($_POST['department'])&& isset($_POST['dataval'])){
+	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['country']) && isset($_POST['bod'])  && isset($_POST['password']) && isset($_POST['department'])&& isset($_POST['dataval'])){
 
 		$username = $user_fun->htmlvalidation($_POST['username']);
 		$email = $user_fun->htmlvalidation($_POST['email']);
 		$country = $user_fun->htmlvalidation($_POST['country']);
 		$bod = $user_fun->htmlvalidation($_POST['bod']);
-		$gender = $user_fun->htmlvalidation($_POST['gender']);
+		//$gender = $user_fun->htmlvalidation($_POST['gender']);
 		$password = $user_fun->htmlvalidation($_POST['password']);
 		$department = $user_fun->htmlvalidation($_POST['department']);
 		$update_id = $user_fun->htmlvalidation($_POST['dataval']);
 
-		if((!preg_match('/^[ ]*$/', $username)) && (!preg_match('/^[ ]*$/', $email)) && (!preg_match('/^[ ]*$/', $country)) && (!preg_match('/^[ ]*$/', $gender)) && (!preg_match('/^[ ]*$/', $password))&& (!preg_match('/^[ ]*$/', $department))&& ($bod != NULL)){
+		if((!preg_match('/^[ ]*$/', $username)) && (!preg_match('/^[ ]*$/', $email)) && (!preg_match('/^[ ]*$/', $country))  && (!preg_match('/^[ ]*$/', $password))&& (!preg_match('/^[ ]*$/', $department))&& ($bod != NULL)){
 
 			$condition['u_id'] = $update_id;
 
 			$field_val['u_name'] = $username;
 			$field_val['u_email'] = $email;
-			$field_val['u_gender'] = $gender;
+			//$field_val['u_gender'] = $gender;
 			$field_val['u_country'] = $country;
 			$field_val['u_country'] = $country;
 			$field_val['u_password'] = $password;
@@ -63,12 +63,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$json['msg'] = "Please Select Country";
 
 			}
-			if(preg_match('/^[ ]*$/', $gender)){
+			// if(preg_match('/^[ ]*$/', $gender)){
 
-				$json['status'] = 106;
-				$json['msg'] = "Please Choice Gender";
+			// 	$json['status'] = 106;
+			// 	$json['msg'] = "Please Choice Gender";
 
-			}
+			// }
 			if(preg_match('/^[ ]*$/', $password)){
 
 				$json['status'] = 107;

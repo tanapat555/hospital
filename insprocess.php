@@ -7,25 +7,23 @@ $json = array();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['country']) && isset($_POST['bod']) && isset($_POST['gender'])){
+	if(isset($_POST['Username']) && isset($_POST['name']) && isset($_POST['statusid']) && isset($_POST['expiry_date'])){
 
-		$username = $user_fun->htmlvalidation($_POST['username']);
-		$email = $user_fun->htmlvalidation($_POST['email']);
-		$country = $user_fun->htmlvalidation($_POST['country']);
-		$bod = $user_fun->htmlvalidation($_POST['bod']);
-		$gender = $user_fun->htmlvalidation($_POST['gender']);
+		$Username = $user_fun->htmlvalidation($_POST['Username']);
+		$name = $user_fun->htmlvalidation($_POST['name']);
+		$statusid = $user_fun->htmlvalidation($_POST['statusid']);
+		$expiry_date = $user_fun->htmlvalidation($_POST['expiry_date']);
 		$password = $user_fun->htmlvalidation($_POST['password']);
 		$department = $user_fun->htmlvalidation($_POST['department']);
 		 
-		if((!preg_match('/^[ ]*$/', $username)) && (!preg_match('/^[ ]*$/', $email)) && (!preg_match('/^[ ]*$/', $country)) && (!preg_match('/^[ ]*$/', $gender)) && ($bod != NULL)){
+		if((!preg_match('/^[ ]*$/', $Username)) && (!preg_match('/^[ ]*$/', $name)) && (!preg_match('/^[ ]*$/', $statusid))  && ($expiry_date != NULL)){
 
-			$field_val['u_name'] = $username;
-			$field_val['u_email'] = $email;
-			$field_val['u_gender'] = $gender;
-			$field_val['u_country'] = $country;
-			$field_val['u_bod'] = $bod;
-			$field_val['u_password'] = $password;	
-			$field_val['u_department'] = $department;	
+			$field_val['Username'] = $Username;
+			$field_val['name'] = $name;
+			$field_val['statusid'] = $statusid;
+			$field_val['expiry_date'] = $expiry_date;
+			$field_val['password'] = $password;	
+			$field_val['department'] = $department;	
 
 			$insert = $user_fun->insert("user", $field_val);
 
@@ -41,34 +39,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		}
 		else{
 
-			if(preg_match('/^[ ]*$/', $username)){
+			if(preg_match('/^[ ]*$/', $Username)){
 
 				$json['status'] = 103;
 				$json['msg'] = "Please Enter Username";
 
 			}
-			if(preg_match('/^[ ]*$/', $email)){
+			if(preg_match('/^[ ]*$/', $name)){
 
 				$json['status'] = 104;
-				$json['msg'] = "Please Enter Email";
+				$json['msg'] = "Please Enter Name";
 
 			}
-			if(preg_match('/^[ ]*$/', $country)){
+			if(preg_match('/^[ ]*$/', $statusid)){
 
 				$json['status'] = 105;
-				$json['msg'] = "Please Select Country";
+				$json['msg'] = "Please Select Statusid";
 
 			}
-			if(preg_match('/^[ ]*$/', $gender)){
-
-				$json['status'] = 106;
-				$json['msg'] = "Please Choice Gender";
-
-			}
-			if($bod == NULL){
+			if($expiry_date == NULL){
 
 				$json['status'] = 107;
-				$json['msg'] = "Please Enter BOD";
+				$json['msg'] = "Please Enter Expiry_date";
 
 			}
 

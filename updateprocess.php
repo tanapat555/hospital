@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			$json['email'] = $select_pre['u_email'];
 			$json['country'] = $select_pre['u_country'];
 			$json['bod'] = $select_pre['u_bod'];
-			$json['gender'] = $select_pre['u_gender'];
+			//$json['gender'] = $select_pre['u_gender'];
 			$json['password'] = $select_pre['u_password'];
 			$json['department'] = $select_pre['u_department'];
 			$json['msg'] = "Success";
@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			$json['email'] = "NULL";
 			$json['country'] = "NULL";
 			$json['bod'] = "NULL";
-			$json['gender'] = "NULL";
+			//$json['gender'] = "NULL";
 			$json['password'] = "NULL";
 			$json['department'] = "NULL";
 			$json['msg'] = "Fail";
@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			$json['email'] = "NULL";
 			$json['country'] = "NULL";
 			$json['bod'] = "NULL";
-			$json['gender'] = "NULL";
+		//	$json['gender'] = "NULL";
 			$json['password'] = "NULL";
 			$json['department'] = "NULL";
 			$json['msg'] = "Invalid Values Passed";
@@ -59,7 +59,7 @@ else{
 			$json['email'] = "NULL";
 			$json['country'] = "NULL";
 			$json['bod'] = "NULL";
-			$json['gender'] = "NULL";
+			//$json['gender'] = "NULL";
 			$json['password'] = "NULL";
 			$json['department'] = "NULL";
 			$json['msg'] = "Invalid Method Found";
